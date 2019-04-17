@@ -1,0 +1,19 @@
+.nav-menu {
+    color: $menu-items-text-color;
+    display: flex;
+    list-style-type: none;
+
+    &__link {
+        display: inline-block;
+        padding: 2rem;
+        text-decoration: none;
+
+        &--active {
+            color: white;
+        }
+    }
+
+    &__item--active {
+        background-color: $tertiary-color;
+    }
+}

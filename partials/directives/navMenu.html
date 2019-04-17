@@ -1,0 +1,7 @@
+<nav>
+    <ul class="nav-menu">
+        <li class="nav-menu__item" ng-class="{'nav-menu__item--active' : item.active}" ng-repeat="item in items">
+            <a class="nav-menu__link" ng-class="{'nav-menu__link--active' : item.active}" href="#!{{item.href}}" ng-click="updateItems(item.href)">{{item.value}}</a>
+        </li>
+    </ul>
+</nav>

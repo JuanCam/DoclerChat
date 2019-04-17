@@ -1,0 +1,60 @@
+<div class="user-settings">
+
+    <div class="user-settings__group">
+        <div class="user-settings__user">
+            <h3 class="user-settings__title">User name</h3>
+            <input type="text" class="user-settings__textbox" ng-model="settings.userName" id="user-name">
+        </div>
+        <div class="user-settings__user">
+            <h3 class="user-settings__title">Interface color</h3>
+            <div class="user-settings__checkbox-group">
+                <div ng-repeat="color in settings.userSettings.interfaceColor">
+                    <input type="radio" name="colorTheme" id="{{color | lowercase}}" ng-model="settings.userSettings.selectedColor" ng-value="color" ng-checked="color === settings.userSettings.selectedColor">
+                    <label class="user-settings__radio" for="{{color | lowercase}}">{{color}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="user-settings__group">
+        <div class="user-settings__user">
+            <h3 class="user-settings__title">Clock display</h3>
+            <div class="user-settings__checkbox-group">
+                <div ng-repeat="item in settings.userSettings.clockDisplay">
+                    <input type="radio" name="clockDisplay" id="{{item | lowercase}}" ng-model="settings.userSettings.selectedClockDisplay" ng-value="item" ng-checked="item === settings.userSettings.selectedClockDisplay">
+                    <label class="user-settings__radio" for="{{item | lowercase}}">{{item}}</label>
+                </div>
+            </div>
+        </div>
+        <div class="user-settings__user">
+            <h3 class="user-settings__title">Send messages on CTRL + Enter</h3>
+
+            <input type="radio" name="sendMessages" id="enter-on" ng-model="settings.userSettings.sendMessagesOnCtrlEnter" ng-checked="settings.userSettings.sendMessagesOnCtrlEnter" ng-value="true">
+            <label class="user-settings__radio" for="enter-on">On</label>
+
+            <input type="radio" name="sendMessages" id="enter-off" ng-model="settings.userSettings.sendMessagesOnCtrlEnter" ng-checked="!settings.userSettings.sendMessagesOnCtrlEnter" ng-value="false">
+            <label class="user-settings__radio" for="enter-off">Off</label>
+        </div>
+    </div>
+
+    <div class="user-settings__group">
+        <div class="user-settings__user">
+            <h3 class="user-settings__title">Language</h3>
+            <select name="" id="">
+                <option ng-repeat="language in settings.userSettings.languages" value="language">{{language}}</option>
+            </select>
+        </div>
+        <div class="user-settings__user"></div>
+    </div>
+
+    <p ng-if="settings.changesSaved" class="user-settings__notification user-settings__notification--success">Changes saved!</p>
+
+    <div class="user-settings__group user-settings__group--align-center">
+        <div class="user-settings__user">
+            <button class="btn user-settings__btn-save" ng-click="settings.updateUserSettings(true)">Save</button>
+        </div>
+        <div class="user-settings__user">
+            <button class="btn user-settings__btn-reset" ng-click="settings.updateUserSettings()">Reset</button>
+        </div>
+    </div>
+</div>

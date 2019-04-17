@@ -1,0 +1,21 @@
+.bubble {
+
+    border: 1px solid $secondary-color;
+    border-radius: 2rem;
+    border-top-left-radius: 0;
+    color: $visitor-bubble-text-color;
+    float: left;
+    margin-top: 1rem;
+    max-width: 60%;
+    padding: 1rem;
+
+    &--right {
+        background-color: $primary-color;
+        border: none;
+        border-radius: 2rem;
+        border-top-right-radius: 0;
+        color: white;
+        float: right;
+        text-align: right;
+    }
+}

@@ -1,0 +1,7 @@
+@mixin breakpoint($size) {
+    @if $size == 'mid' {
+        @media (min-width: $mid-viewport) {
+            @content;
+        }   
+    }
+}

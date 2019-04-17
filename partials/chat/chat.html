@@ -1,0 +1,10 @@
+<div class="chat">
+    <h1>Chat App</h1>
+    <p ng-if="!chat.userName" class="chat__headline chat__headline--alert">Please insert a user name in settings.</p>
+    <p ng-if="chat.userName" class="chat__headline chat__headline--welcome">Welcome {{chat.userName}}</p>
+    <conversation-box messages="chat.messages" peer-user="chat.peerUser" unread-message="chat.unreadMessage" selected-color="chat.selectedColor"></conversation-box>
+    <div class="chat__cta">
+        <input type="text" class="chat__text-box" ng-model="chat.message" ng-disabled="!chat.userName" ng-focus="chat.focusTextField()" placeholder="Enter your message here" ng-keydown="chat.sendMessage($event)">
+        <button class="chat__send-button" ng-class="{'chat__send-button--disabled': !chat.message || !chat.userName}" ng-click="chat.sendMessage($event)" ng-disabled="!chat.message || !chat.userName"><i class="fas fa-paper-plane"></i></button>
+    </div>
+</div>

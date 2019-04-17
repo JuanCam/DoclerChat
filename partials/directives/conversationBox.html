@@ -1,0 +1,8 @@
+<div class="conversation-box" ng-class="{'conversation-box--unread': unreadMessage, 'conversation-box--dark': selectedColor === 'Dark'}">
+    <div class="conversation-box__line ut-clearfix" ng-repeat="message in messages">
+        <p class="conversation-box__author" ng-class="{'conversation-box__author--right': message.isMe}">
+            <span ng-if="!message.isMe">{{peerUser}}</span><span ng-if="message.isMe">You</span> said:
+        </p>
+        <bubble-message message="message.text" is-me="message.isMe" ></bubble-message>
+    </div>
+</div>
